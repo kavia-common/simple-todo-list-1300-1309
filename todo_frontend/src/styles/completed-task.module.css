@@ -1,0 +1,101 @@
+ /* COMPLETED TASK screen-specific styles, mapped from Figma coordinates (screen_9:757) */
+
+/* Use global .screen with local .completed-task */
+:global(.screen).completed-task {
+  /* Background rectangle (style_1 -> color_d6d7ef) */
+  background: var(--color-d6d7ef);
+}
+
+/* App Bar (AppBar rectangle style_2 -> color_9395d3) */
+.completed-task .appbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--space-118); /* 118px */
+  background: var(--color-9395d3); /* style_2 background */
+}
+
+/* Status Bar layered inside appbar (Dark Mode=YES) - status-bar is global */
+.completed-task .appbar :global(.status-bar) {
+  color: var(--color-ffffff);
+}
+
+/* Title "Completed Task" (typo_8) - appbar-title is global */
+.completed-task :global(.appbar-title) {
+  position: absolute;
+  left: 88px;
+  top: 61px;
+  width: 191px;
+  height: 34.264px;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-8-size);
+  line-height: var(--typo-8-line-height);
+  font-weight: var(--typo-8-weight);
+  color: var(--typo-8-color);
+  text-align: center;
+}
+
+/* Back button (Turn BackPage Button style_17) - back-button is global */
+.completed-task :global(.back-button) {
+  position: absolute;
+  left: 22px;
+  top: 78px;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.completed-task :global(.back-button)::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-left: 3px solid var(--color-ffffff); /* style_17 border color/width */
+  border-bottom: 3px solid var(--color-ffffff);
+  transform: rotate(45deg);
+}
+
+/* Todo Cards (style_22: white bg, radius 15, shadow_0) */
+.completed-task .todo-card {
+  position: absolute;
+  left: 7px;
+  width: calc(100% - 14px); /* fluid width with 7px margins */
+  height: 82px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-15);
+  box-shadow: var(--shadow-0);
+}
+
+/* Specific vertical positions per card */
+.completed-task .todo-card.card-1 { top: 134px; }
+.completed-task .todo-card.card-2 { top: 232px; }
+.completed-task .todo-card.card-3 { top: 330px; }
+
+/* Titles within card (relative to card container) */
+.completed-task .todo-card .t-title {
+  position: absolute;
+  left: 19px;
+  top: 22px;
+  margin: 0;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-9-size);
+  line-height: var(--typo-9-line-height);
+  font-weight: var(--typo-9-weight);
+  color: var(--typo-9-color);
+}
+
+.completed-task .todo-card .t-subtitle {
+  position: absolute;
+  left: 19px;
+  top: 46px;
+  margin: 0;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-10-size);
+  line-height: var(--typo-10-line-height);
+  font-weight: var(--typo-10-weight);
+  color: var(--typo-10-color);
+}
