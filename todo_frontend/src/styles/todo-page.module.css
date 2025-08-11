@@ -34,7 +34,8 @@
   line-height: var(--typo-8-line-height);
   font-weight: var(--typo-8-weight);
   color: var(--typo-8-color);
-  text-align: center;
+  /* Ensure strict left alignment per design */
+  text-align: left;
 }
 
 /* Todo Cards (style_22: white bg, radius 15, shadow_0)
@@ -75,6 +76,8 @@
   line-height: var(--typo-9-line-height);
   font-weight: var(--typo-9-weight);
   color: var(--typo-9-color);
+  /* Explicitly left-align to avoid any inherited centering */
+  text-align: left;
 }
 
 .todo-page .todo-card .t-subtitle {
@@ -87,6 +90,8 @@
   line-height: var(--typo-10-line-height);
   font-weight: var(--typo-10-weight);
   color: var(--typo-10-color);
+  /* Explicitly left-align to avoid any inherited centering */
+  text-align: left;
 }
 
 /* Card action icons */
