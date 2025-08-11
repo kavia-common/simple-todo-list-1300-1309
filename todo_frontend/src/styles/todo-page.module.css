@@ -1,0 +1,227 @@
+ /* TODO PAGE screen-specific styles, mapped from Figma coordinates (screen_9:680) */
+
+.screen.todo-page {
+  /* Background rectangle (Background style_1 -> color_d6d7ef) */
+  background: var(--color-d6d7ef);
+}
+
+/* App Bar (AppBar rectangle style_2 -> color_9395d3) */
+.todo-page .appbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--space-414);
+  height: var(--space-118); /* 118px */
+  background: var(--color-9395d3); /* style_2 background */
+}
+
+/* Status Bar layered inside appbar (Dark Mode=YES) */
+.todo-page .appbar .status-bar {
+  color: var(--color-ffffff);
+}
+
+/* Title "TODO APP" (typo_8)
+   We align consistently across screens (left=88, top=61) */
+.todo-page .appbar-title {
+  position: absolute;
+  left: 88px;
+  top: 61px;
+  width: 131px;
+  height: 34.264px;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-8-size);
+  line-height: var(--typo-8-line-height);
+  font-weight: var(--typo-8-weight);
+  color: var(--typo-8-color);
+  text-align: center;
+}
+
+/* Todo Cards (style_22: white bg, radius 15, shadow_0)
+   Cards positions from Figma (relative to frame -751,-952):
+   - Card 1: y=-812 -> top=140; left=7
+   - Card 2: y=-709 -> top=243
+   - Card 3: y=-606 -> top=346
+   - Card 4: y=-503 -> top=449
+   - Card 5: y=-400 -> top=552
+   Size: width=400, height=82
+*/
+.todo-page .todo-card {
+  position: absolute;
+  left: 7px;
+  width: 400px;
+  height: 82px;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-15);
+  box-shadow: var(--shadow-0);
+}
+
+/* Specific vertical positions per card */
+.todo-page .todo-card.card-1 { top: 140px; }
+.todo-page .todo-card.card-2 { top: 243px; }
+.todo-page .todo-card.card-3 { top: 346px; }
+.todo-page .todo-card.card-4 { top: 449px; }
+.todo-page .todo-card.card-5 { top: 552px; }
+
+/* Titles within card (relative to card container)
+   Titles group: left=19, top=22 (subtitle top=46) */
+.todo-page .todo-card .t-title {
+  position: absolute;
+  left: 19px;
+  top: 22px;
+  margin: 0;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-9-size);
+  line-height: var(--typo-9-line-height);
+  font-weight: var(--typo-9-weight);
+  color: var(--typo-9-color);
+}
+
+.todo-page .todo-card .t-subtitle {
+  position: absolute;
+  left: 19px;
+  top: 46px;
+  margin: 0;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-10-size);
+  line-height: var(--typo-10-line-height);
+  font-weight: var(--typo-10-weight);
+  color: var(--typo-10-color);
+}
+
+/* Card action icons */
+.todo-page .todo-card .icon-btn {
+  position: absolute;
+  top: 29px;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  color: var(--color-b3b7ee);             /* style_16 fill tone for glyphs */
+  border: 1.5px solid var(--color-b3b7ee);/* style_15 stroke */
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 25px;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.todo-page .todo-card .btn-edit  { right: 115px; }
+.todo-page .todo-card .btn-trash { right: 63px; }
+.todo-page .todo-card .btn-check { right: 12px; }
+
+/* Completed state visual */
+.todo-page .todo-card.is-complete {
+  opacity: 0.6;
+}
+.todo-page .todo-card.is-complete .btn-check {
+  background: rgba(179, 183, 238, 0.15);
+}
+
+/* Floating Add Button (FAB) */
+.todo-page .fab {
+  position: absolute;
+  left: 322px;
+  top: 737px;
+  width: 70px;
+  height: 70px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-9395d3);
+  box-shadow: var(--shadow-0);
+  cursor: pointer;
+}
+.todo-page .fab::before,
+.todo-page .fab::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: var(--color-ffffff); /* style_3 border/color -> white */
+  transform: translate(-50%, -50%);
+}
+.todo-page .fab::before { /* horizontal bar */
+  width: 21px;
+  height: 2px;
+}
+.todo-page .fab::after { /* vertical bar */
+  width: 2px;
+  height: 23.6px;
+}
+
+/* Bottom Navigation Bar */
+.todo-page .bottom-nav {
+  position: absolute;
+  left: 0;
+  top: 828px;
+  width: var(--space-414);
+  height: 68px;
+  background: var(--color-ffffff);
+}
+
+/* Playlist icon */
+.todo-page .bottom-nav .icon-playlist {
+  position: absolute;
+  left: 91px;
+  top: 12px; /* 840 - 828 */
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.todo-page .bottom-nav .icon-playlist .bar {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: var(--color-9395d3); /* style_4 uses 9395d3 stroke; use same hue */
+  border-radius: 1px;
+}
+.todo-page .bottom-nav .icon-playlist .bar:nth-child(1) { top: 8px; }
+.todo-page .bottom-nav .icon-playlist .bar:nth-child(2) { top: 14px; }
+.todo-page .bottom-nav .icon-playlist .bar:nth-child(3) { top: 20px; }
+
+/* Tick icon */
+.todo-page .bottom-nav .icon-tick {
+  position: absolute;
+  left: 303px;
+  top: 9px; /* 837 - 828 */
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  color: var(--color-8b8787); /* style_5 stroke color */
+  border: 1.5px solid var(--color-b3b7ee);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-size: 16px;
+}
+
+/* Labels */
+.todo-page .bottom-nav .label {
+  position: absolute;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-10-size);
+  line-height: var(--typo-10-line-height);
+  font-weight: var(--typo-10-weight);
+}
+.todo-page .bottom-nav .label-all {
+  left: 98px;
+  top: 39px; /* 867 - 828 */
+  color: var(--color-9395d3); /* typo_6 color */
+}
+.todo-page .bottom-nav .label-completed {
+  left: 296px;
+  top: 39px;
+  color: var(--color-8b8787); /* typo_7 color */
+}
+
+/* Active filter state */
+.todo-page .bottom-nav.is-completed .label-all {
+  color: var(--color-8b8787);
+}
+.todo-page .bottom-nav.is-completed .label-completed {
+  color: var(--color-9395d3);
+}
+.todo-page .bottom-nav.is-completed .icon-tick {
+  color: var(--color-9395d3);
+  border-color: var(--color-9395d3);
+}

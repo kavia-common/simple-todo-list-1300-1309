@@ -1,0 +1,125 @@
+ /* EDIT TODO screen-specific styles, mapped from Figma coordinates */
+
+.screen.edit-todo {
+  /* Artboard background (Background rectangle style_0 -> color_ffffff) */
+  background: var(--color-ffffff);
+}
+
+/* App Bar group (AppBar rectangle style_2 -> color_9395d3) */
+.edit-todo .appbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--space-414);
+  height: var(--space-118); /* 118px */
+  background: var(--color-9395d3); /* style_2 background */
+}
+
+/* Status Bar layered inside appbar (Dark Mode=YES) */
+.edit-todo .appbar .status-bar {
+  color: var(--color-ffffff);
+}
+
+/* Title "Edit Task" (typo_8)  */
+.edit-todo .appbar-title {
+  position: absolute;
+  left: 88px;
+  top: 61px;
+  width: 131px;
+  height: 34.264px;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-8-size);
+  line-height: var(--typo-8-line-height);
+  font-weight: var(--typo-8-weight);
+  color: var(--typo-8-color);
+  text-align: center;
+}
+
+/* Back button (Turn BackPage Button style_17)  */
+.edit-todo .back-button {
+  position: absolute;
+  left: 26px;
+  top: 78px;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.edit-todo .back-button::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-left: 3px solid var(--color-ffffff); /* style_17 border color/width */
+  border-bottom: 3px solid var(--color-ffffff);
+  transform: rotate(45deg);
+}
+
+/* "Title" label (typo_11)  */
+.edit-todo .field-title-label {
+  position: absolute;
+  left: 29px;
+  top: 161px;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-11-size);
+  line-height: var(--typo-11-line-height);
+  font-weight: var(--typo-11-weight);
+  color: var(--typo-11-color);
+}
+
+/* Bottom line for Title input (style_18) */
+.edit-todo .field-title-input {
+  position: absolute;
+  left: 29px;
+  top: 184px; /* small offset to align text baseline above line */
+  width: 356px;
+}
+.edit-todo .field-title-input .input-underline {
+  border-bottom-color: var(--color-8b8787); /* style_18 */
+}
+
+/* "Detail" label (typo_11) */
+.edit-todo .field-detail-label {
+  position: absolute;
+  left: 32px;
+  top: 233px;
+  font-family: var(--font-family-jost);
+  font-size: var(--typo-11-size);
+  line-height: var(--typo-11-line-height);
+  font-weight: var(--typo-11-weight);
+  color: var(--typo-11-color);
+}
+
+/* Bottom line for Detail input  */
+.edit-todo .field-detail-input {
+  position: absolute;
+  left: 32px;
+  top: 256px;
+  width: 356px;
+}
+.edit-todo .field-detail-input .input-underline {
+  border-bottom-color: var(--color-8b8787);
+}
+
+/* Buttons Row */
+.edit-todo .actions .btn {
+  width: 170px;
+  height: 65px; /* 65.065 -> 65 */
+}
+
+/* Update button */
+.edit-todo .btn-update {
+  position: absolute;
+  left: 14px;
+  top: 316px;
+}
+
+/* Cancel button */
+.edit-todo .btn-cancel {
+  position: absolute;
+  left: 230px;
+  top: 316px;
+}

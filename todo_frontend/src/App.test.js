@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders TODO APP title on home route', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // Title is inside the app bar on the Todo Page
+  const title = screen.getByText(/TODO APP/i);
+  expect(title).toBeInTheDocument();
 });

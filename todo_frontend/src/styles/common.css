@@ -1,0 +1,272 @@
+:root {
+  /* Color tokens (from design system) */
+  --color-ffffff: #ffffff;
+  --color-d6d7ef: #d6d7ef;
+  --color-9395d3: #9395d3;
+  --color-8b8787: #8b8787;
+  --color-000000: #000000;
+  --color-d1d1d6: #d1d1d6;
+  --color-ebebf5: #ebebf5;
+  --color-34c759: #34c759;
+  --color-ffd60a: #ffd60a;
+  --color-b3b7ee: #b3b7ee;
+
+  /* Typography tokens (Jost family, sizes, weights, line-heights) */
+  --font-family-jost: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+
+  /* Typography maps */
+  /* typo_8: Jost 24 / 600 / lh 34.68 / color #ffffff */
+  --typo-8-size: 24px;
+  --typo-8-weight: 600;
+  --typo-8-line-height: 34.68px;
+  --typo-8-color: var(--color-ffffff);
+
+  /* typo_9: Jost 13 / 600 / lh 18.785 / color #9395d3 */
+  --typo-9-size: 13px;
+  --typo-9-weight: 600;
+  --typo-9-line-height: 18.785px;
+  --typo-9-color: var(--color-9395d3);
+
+  /* typo_10: Jost 10 / 400 / lh 14.45 / color #000000 */
+  --typo-10-size: 10px;
+  --typo-10-weight: 400;
+  --typo-10-line-height: 14.45px;
+  --typo-10-color: var(--color-000000);
+
+  /* typo_11: Jost 16 / 400 / lh 23.12 / color #8b8787 */
+  --typo-11-size: 16px;
+  --typo-11-weight: 400;
+  --typo-11-line-height: 23.12px;
+  --typo-11-color: var(--color-8b8787);
+
+  /* typo_12: Jost 20 / 600 / lh 28.9 / color #ffffff */
+  --typo-12-size: 20px;
+  --typo-12-weight: 600;
+  --typo-12-line-height: 28.9px;
+  --typo-12-color: var(--color-ffffff);
+
+  /* typo_13: Jost 15 / 400 / lh 21.675 / color #ffffff */
+  --typo-13-size: 15px;
+  --typo-13-weight: 400;
+  --typo-13-line-height: 21.675px;
+  --typo-13-color: var(--color-ffffff);
+
+  /* Spacing tokens used by Figma coordinates */
+  --space-0: 0px;
+  --space-14: 14px;
+  --space-20: 20px;
+  --space-23: 23px;
+  --space-25: 25px;
+  --space-29: 29px;
+  --space-30: 30px;
+  --space-33: 33px;
+  --space-34: 34px;
+  --space-39: 39px;
+  --space-44: 44px;
+  --space-49: 49px;
+  --space-54: 54px;
+  --space-65: 65px;
+  --space-69: 69px;
+  --space-70: 70px;
+  --space-82: 82px;
+  --space-83: 83px;
+  --space-92: 92px;
+  --space-107: 107px;
+  --space-110: 110px;
+  --space-118: 118px;
+  --space-131: 131px;
+  --space-170: 170px;
+  --space-356: 356px;
+  --space-400: 400px;
+  --space-414: 414px;
+  --space-896: 896px;
+
+  /* Component radii */
+  --radius-1: 1px;
+  --radius-15: 15px;
+  --radius-20: 20px;
+
+  /* Shadows */
+  --shadow-0: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-ffffff);
+  color: var(--color-000000);
+  font-family: var(--font-family-jost);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-family-jost);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utility */
+.center-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f4f6f8;
+}
+
+.phone-shadow {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: var(--radius-20);
+  background: var(--color-ffffff);
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  border: 0 !important;
+}
+
+/* Shared components (style_23 button baseline) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-9395d3); /* style_23 background */
+  color: var(--color-ffffff);
+  border: none;
+  border-radius: var(--radius-15); /* style_23 radius */
+  box-shadow: var(--shadow-0);     /* style_23 shadow */
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  font-size: var(--typo-13-size);
+  line-height: var(--typo-13-line-height);
+  font-weight: var(--typo-13-weight);
+  padding: 12px 16px;
+}
+
+/* Large button text (typo_12: 20/600/28.9) */
+.btn-lg {
+  font-size: var(--typo-12-size);
+  line-height: var(--typo-12-line-height);
+  font-weight: var(--typo-12-weight);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Input baseline for underlined style */
+.input-underline {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-8b8787); /* style_18 border */
+  padding: 6px 0;
+  font-size: 16px;
+  background: transparent;
+  color: var(--color-000000);
+  outline: none;
+}
+
+.input-underline::placeholder {
+  color: rgba(0,0,0,0.35);
+}
+
+/* Simple status bar tokens (generic) */
+.status-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: var(--space-44);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  color: var(--color-ffffff);
+  font-size: 12px;
+}
+
+.status-bar .time {
+  margin-left: 21px;
+  font-weight: 600;
+}
+
+.status-bar .indicators {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  height: 14px;
+  color: var(--color-ebebf5);
+}
+
+.icon-dot,
+.icon-bar,
+.icon-battery {
+  display: inline-block;
+  background: currentColor;
+}
+
+.icon-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+}
+
+.icon-bar {
+  width: 3px;
+  border-radius: 1px;
+}
+
+.icon-battery {
+  width: 19px;
+  height: 8px;
+  border: 1px solid var(--color-ebebf5);
+  background: var(--color-ffffff);
+  position: relative;
+}
+.icon-battery::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 2px;
+  width: 1px;
+  height: 4px;
+  background: var(--color-ebebf5);
+}
+
+/* Screen container baseline */
+.screen {
+  position: relative;
+  width: var(--space-414);
+  height: var(--space-896);
+  overflow: hidden;
+  background: var(--color-ffffff);
+  border-radius: var(--radius-20);
+}
