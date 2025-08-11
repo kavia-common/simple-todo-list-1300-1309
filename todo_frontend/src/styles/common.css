@@ -264,9 +264,13 @@ a {
 /* Screen container baseline */
 .screen {
   position: relative;
-  width: var(--space-414);
-  height: var(--space-896);
+  width: 100%;
+  max-width: var(--space-414);
+  min-height: 100vh;
+  height: auto;
   overflow: hidden;
   background: var(--color-ffffff);
   border-radius: var(--radius-20);
+  /* Support iOS safe-area bottom padding */
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }

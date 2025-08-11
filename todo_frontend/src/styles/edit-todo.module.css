@@ -11,7 +11,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--space-414);
+  width: 100%;
   height: var(--space-118); /* 118px */
   background: var(--color-9395d3); /* style_2 background */
 }
@@ -76,7 +76,7 @@
   position: absolute;
   left: 29px;
   top: 184px; /* small offset to align text baseline above line */
-  width: 356px;
+  width: calc(100% - 58px); /* 29px left + 29px right */
 }
 .edit-todo .field-title-input .input-underline {
   border-bottom-color: var(--color-8b8787); /* style_18 */
@@ -99,7 +99,7 @@
   position: absolute;
   left: 32px;
   top: 256px;
-  width: 356px;
+  width: calc(100% - 64px); /* 32px left + 32px right */
 }
 .edit-todo .field-detail-input .input-underline {
   border-bottom-color: var(--color-8b8787);
@@ -123,4 +123,15 @@
   position: absolute;
   left: 230px;
   top: 316px;
+}
+
+/* Small screens: Stack buttons vertically with full width */
+@media (max-width: 380px) {
+  .edit-todo .btn-update,
+  .edit-todo .btn-cancel {
+    left: 14px !important;
+    width: calc(100% - 28px) !important;
+  }
+  .edit-todo .btn-update { top: 316px !important; }
+  .edit-todo .btn-cancel { top: 388px !important; }
 }

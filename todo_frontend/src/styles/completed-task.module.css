@@ -11,7 +11,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--space-414);
+  width: 100%;
   height: var(--space-118); /* 118px */
   background: var(--color-9395d3); /* style_2 background */
 }
@@ -63,7 +63,7 @@
 .completed-task .todo-card {
   position: absolute;
   left: 7px;
-  width: 400px;
+  width: calc(100% - 14px); /* fluid width with 7px margins */
   height: 82px;
   background: var(--color-ffffff);
   border-radius: var(--radius-15);

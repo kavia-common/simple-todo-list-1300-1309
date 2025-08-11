@@ -11,7 +11,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--space-414);
+  width: 100%;
   height: var(--space-118); /* 118px */
   background: var(--color-9395d3); /* style_2 background */
 }
@@ -76,7 +76,7 @@
   position: absolute;
   left: 29px;
   top: 184px; /* small offset to align text baseline above line */
-  width: 356px;
+  width: calc(100% - 58px); /* 29px left + 29px right */
 }
 .add-todo .field-title-input .input-underline {
   border-bottom-color: var(--color-8b8787); /* style_18 */
@@ -99,7 +99,7 @@
   position: absolute;
   left: 32px;
   top: 256px;
-  width: 356px;
+  width: calc(100% - 64px); /* 32px left + 32px right */
 }
 .add-todo .field-detail-input .input-underline {
   border-bottom-color: var(--color-8b8787);
@@ -110,7 +110,14 @@
   position: absolute;
   left: 14px;
   top: 316px;
-  width: 386px;
+  width: calc(100% - 28px); /* full width minus 14px side margins */
   height: 65px; /* 65.065 -> 65 */
   text-transform: uppercase;
+}
+
+/* Touch-friendly tweaks */
+@media (max-width: 600px) {
+  .add-todo .btn-add {
+    height: 60px;
+  }
 }

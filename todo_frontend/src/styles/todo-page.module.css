@@ -1,9 +1,14 @@
  /* TODO PAGE screen-specific styles, mapped from Figma coordinates (screen_9:680) */
-
+ 
 /* Use global .screen with local .todo-page */
 :global(.screen).todo-page {
   /* Background rectangle (Background style_1 -> color_d6d7ef) */
   background: var(--color-d6d7ef);
+}
+
+/* Provide space for bottom nav, prevent content overlap on small screens */
+.todo-page {
+  padding-bottom: 88px;
 }
 
 /* App Bar (AppBar rectangle style_2 -> color_9395d3) */
@@ -11,7 +16,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--space-414);
+  width: 100%;
   height: var(--space-118); /* 118px */
   background: var(--color-9395d3); /* style_2 background */
 }
@@ -22,13 +27,11 @@
 }
 
 /* Title "TODO APP" (typo_8)
-   Adjusted to reduce the excessive left gap and align with content baseline. */
+   Adjusted to left align closer to screen edge for consistency with Figma. */
 .todo-page :global(.appbar-title) {
   position: absolute;
-  /* Align closer to the left edge to match the card text baseline (~26px from screen edge) */
   left: 26px;
   top: 61px;
-  /* Use auto width so text does not stay centered within an artificial box */
   width: auto;
   height: 34.264px;
   font-family: var(--font-family-jost);
@@ -36,25 +39,16 @@
   line-height: var(--typo-8-line-height);
   font-weight: var(--typo-8-weight);
   color: var(--typo-8-color);
-  /* Ensure strict left alignment with no unintended spacing */
   text-align: left;
   margin: 0;
   padding: 0;
 }
 
-/* Todo Cards (style_22: white bg, radius 15, shadow_0)
-   Cards positions from Figma (relative to frame -751,-952):
-   - Card 1: y=-812 -> top=140; left=7
-   - Card 2: y=-709 -> top=243
-   - Card 3: y=-606 -> top=346
-   - Card 4: y=-503 -> top=449
-   - Card 5: y=-400 -> top=552
-   Size: width=400, height=82
-*/
+/* Todo Cards (style_22: white bg, radius 15, shadow_0) */
 .todo-page .todo-card {
   position: absolute;
   left: 7px;
-  width: 400px;
+  width: calc(100% - 14px); /* fluid width with 7px side margins */
   height: 82px;
   background: var(--color-ffffff);
   border-radius: var(--radius-15);
@@ -80,7 +74,6 @@
   line-height: var(--typo-9-line-height);
   font-weight: var(--typo-9-weight);
   color: var(--typo-9-color);
-  /* Explicitly left-align to avoid any inherited centering */
   text-align: left;
 }
 
@@ -94,7 +87,6 @@
   line-height: var(--typo-10-line-height);
   font-weight: var(--typo-10-weight);
   color: var(--typo-10-color);
-  /* Explicitly left-align to avoid any inherited centering */
   text-align: left;
 }
 
@@ -127,13 +119,13 @@
   background: rgba(179, 183, 238, 0.15);
 }
 
-/* Floating Add Button (FAB) */
+/* Floating Add Button (FAB) - anchor to bottom-right for responsiveness */
 .todo-page .fab {
   position: absolute;
-  left: 322px;
-  top: 737px;
-  width: 70px;
-  height: 70px;
+  right: 22px;
+  bottom: 96px; /* above bottom-nav */
+  width: 64px;
+  height: 64px;
   border: 0;
   border-radius: 50%;
   background: var(--color-9395d3);
@@ -162,19 +154,22 @@
 .todo-page .bottom-nav {
   position: absolute;
   left: 0;
-  top: 828px;
-  width: var(--space-414);
+  bottom: 0;
+  width: 100%;
   height: 68px;
   background: var(--color-ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 12px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
 }
 
 /* Playlist icon - icon classes are global inside BottomNav */
 .todo-page .bottom-nav :global(.icon-playlist) {
-  position: absolute;
-  left: 91px;
-  top: 12px; /* 840 - 828 */
-  width: 30px;
-  height: 30px;
+  position: relative;
+  width: 36px;
+  height: 36px;
   display: inline-block;
 }
 .todo-page .bottom-nav :global(.icon-playlist .bar) {
@@ -185,43 +180,36 @@
   background: var(--color-9395d3); /* style_4 uses 9395d3 stroke; use same hue */
   border-radius: 1px;
 }
-.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(1)) { top: 8px; }
-.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(2)) { top: 14px; }
-.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(3)) { top: 20px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(1)) { top: 9px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(2)) { top: 15px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(3)) { top: 21px; }
 
 /* Tick icon */
 .todo-page .bottom-nav :global(.icon-tick) {
-  position: absolute;
-  left: 303px;
-  top: 9px; /* 837 - 828 */
-  width: 30px;
-  height: 30px;
-  display: inline-block;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-8b8787); /* style_5 stroke color */
   border: 1.5px solid var(--color-b3b7ee);
-  border-radius: 50%;
+  border-radius: 10px;
   text-align: center;
-  line-height: 28px;
+  line-height: 1;
   font-size: 16px;
 }
 
 /* Labels - provided as global classes inside BottomNav */
 .todo-page .bottom-nav :global(.label) {
-  position: absolute;
+  position: static;
   font-family: var(--font-family-jost);
   font-size: var(--typo-10-size);
   line-height: var(--typo-10-line-height);
   font-weight: var(--typo-10-weight);
-}
-.todo-page .bottom-nav :global(.label-all) {
-  left: 98px;
-  top: 39px; /* 867 - 828 */
-  color: var(--color-9395d3); /* typo_6 color */
-}
-.todo-page .bottom-nav :global(.label-completed) {
-  left: 296px;
-  top: 39px;
-  color: var(--color-8b8787); /* typo_7 color */
+  color: var(--color-8b8787);
+  user-select: none;
+  cursor: pointer;
 }
 
 /* Active filter state - BottomNav toggles a global 'is-completed' class on the element */
@@ -234,4 +222,22 @@
 .todo-page .bottom-nav:global(.is-completed) :global(.icon-tick) {
   color: var(--color-9395d3);
   border-color: var(--color-9395d3);
+}
+
+/* Touch-friendly tweaks for small screens */
+@media (max-width: 600px) {
+  .todo-page .bottom-nav {
+    height: 72px;
+  }
+  .todo-page .bottom-nav :global(.icon-playlist),
+  .todo-page .bottom-nav :global(.icon-tick) {
+    width: 44px;
+    height: 44px;
+  }
+  .todo-page .fab {
+    width: 60px;
+    height: 60px;
+    bottom: 92px;
+    right: 18px;
+  }
 }
