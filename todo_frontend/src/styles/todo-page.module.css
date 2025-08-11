@@ -1,6 +1,7 @@
  /* TODO PAGE screen-specific styles, mapped from Figma coordinates (screen_9:680) */
 
-.screen.todo-page {
+/* Use global .screen with local .todo-page */
+:global(.screen).todo-page {
   /* Background rectangle (Background style_1 -> color_d6d7ef) */
   background: var(--color-d6d7ef);
 }
@@ -15,14 +16,14 @@
   background: var(--color-9395d3); /* style_2 background */
 }
 
-/* Status Bar layered inside appbar (Dark Mode=YES) */
-.todo-page .appbar .status-bar {
+/* Status Bar layered inside appbar (Dark Mode=YES) - status-bar is global */
+.todo-page .appbar :global(.status-bar) {
   color: var(--color-ffffff);
 }
 
 /* Title "TODO APP" (typo_8)
    We align consistently across screens (left=88, top=61) */
-.todo-page .appbar-title {
+.todo-page :global(.appbar-title) {
   position: absolute;
   left: 88px;
   top: 61px;
@@ -158,8 +159,8 @@
   background: var(--color-ffffff);
 }
 
-/* Playlist icon */
-.todo-page .bottom-nav .icon-playlist {
+/* Playlist icon - icon classes are global inside BottomNav */
+.todo-page .bottom-nav :global(.icon-playlist) {
   position: absolute;
   left: 91px;
   top: 12px; /* 840 - 828 */
@@ -167,7 +168,7 @@
   height: 30px;
   display: inline-block;
 }
-.todo-page .bottom-nav .icon-playlist .bar {
+.todo-page .bottom-nav :global(.icon-playlist .bar) {
   position: absolute;
   left: 6px;
   right: 6px;
@@ -175,12 +176,12 @@
   background: var(--color-9395d3); /* style_4 uses 9395d3 stroke; use same hue */
   border-radius: 1px;
 }
-.todo-page .bottom-nav .icon-playlist .bar:nth-child(1) { top: 8px; }
-.todo-page .bottom-nav .icon-playlist .bar:nth-child(2) { top: 14px; }
-.todo-page .bottom-nav .icon-playlist .bar:nth-child(3) { top: 20px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(1)) { top: 8px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(2)) { top: 14px; }
+.todo-page .bottom-nav :global(.icon-playlist .bar:nth-child(3)) { top: 20px; }
 
 /* Tick icon */
-.todo-page .bottom-nav .icon-tick {
+.todo-page .bottom-nav :global(.icon-tick) {
   position: absolute;
   left: 303px;
   top: 9px; /* 837 - 828 */
@@ -195,33 +196,33 @@
   font-size: 16px;
 }
 
-/* Labels */
-.todo-page .bottom-nav .label {
+/* Labels - provided as global classes inside BottomNav */
+.todo-page .bottom-nav :global(.label) {
   position: absolute;
   font-family: var(--font-family-jost);
   font-size: var(--typo-10-size);
   line-height: var(--typo-10-line-height);
   font-weight: var(--typo-10-weight);
 }
-.todo-page .bottom-nav .label-all {
+.todo-page .bottom-nav :global(.label-all) {
   left: 98px;
   top: 39px; /* 867 - 828 */
   color: var(--color-9395d3); /* typo_6 color */
 }
-.todo-page .bottom-nav .label-completed {
+.todo-page .bottom-nav :global(.label-completed) {
   left: 296px;
   top: 39px;
   color: var(--color-8b8787); /* typo_7 color */
 }
 
-/* Active filter state */
-.todo-page .bottom-nav.is-completed .label-all {
+/* Active filter state - BottomNav toggles a global 'is-completed' class on the element */
+.todo-page .bottom-nav:global(.is-completed) :global(.label-all) {
   color: var(--color-8b8787);
 }
-.todo-page .bottom-nav.is-completed .label-completed {
+.todo-page .bottom-nav:global(.is-completed) :global(.label-completed) {
   color: var(--color-9395d3);
 }
-.todo-page .bottom-nav.is-completed .icon-tick {
+.todo-page .bottom-nav:global(.is-completed) :global(.icon-tick) {
   color: var(--color-9395d3);
   border-color: var(--color-9395d3);
 }

@@ -1,6 +1,7 @@
  /* COMPLETED TASK screen-specific styles, mapped from Figma coordinates (screen_9:757) */
 
-.screen.completed-task {
+/* Use global .screen with local .completed-task */
+:global(.screen).completed-task {
   /* Background rectangle (style_1 -> color_d6d7ef) */
   background: var(--color-d6d7ef);
 }
@@ -15,13 +16,13 @@
   background: var(--color-9395d3); /* style_2 background */
 }
 
-/* Status Bar layered inside appbar (Dark Mode=YES) */
-.completed-task .appbar .status-bar {
+/* Status Bar layered inside appbar (Dark Mode=YES) - status-bar is global */
+.completed-task .appbar :global(.status-bar) {
   color: var(--color-ffffff);
 }
 
-/* Title "Completed Task" (typo_8) */
-.completed-task .appbar-title {
+/* Title "Completed Task" (typo_8) - appbar-title is global */
+.completed-task :global(.appbar-title) {
   position: absolute;
   left: 88px;
   top: 61px;
@@ -35,8 +36,8 @@
   text-align: center;
 }
 
-/* Back button (Turn BackPage Button style_17) */
-.completed-task .back-button {
+/* Back button (Turn BackPage Button style_17) - back-button is global */
+.completed-task :global(.back-button) {
   position: absolute;
   left: 22px;
   top: 78px;
@@ -46,7 +47,7 @@
   border: none;
   cursor: pointer;
 }
-.completed-task .back-button::before {
+.completed-task :global(.back-button)::before {
   content: "";
   position: absolute;
   left: 6px;

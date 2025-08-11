@@ -1,6 +1,7 @@
  /* EDIT TODO screen-specific styles, mapped from Figma coordinates */
 
-.screen.edit-todo {
+/* Use global .screen with local .edit-todo */
+:global(.screen).edit-todo {
   /* Artboard background (Background rectangle style_0 -> color_ffffff) */
   background: var(--color-ffffff);
 }
@@ -15,13 +16,13 @@
   background: var(--color-9395d3); /* style_2 background */
 }
 
-/* Status Bar layered inside appbar (Dark Mode=YES) */
-.edit-todo .appbar .status-bar {
+/* Status Bar layered inside appbar (Dark Mode=YES) - status-bar is global */
+.edit-todo .appbar :global(.status-bar) {
   color: var(--color-ffffff);
 }
 
-/* Title "Edit Task" (typo_8)  */
-.edit-todo .appbar-title {
+/* Title "Edit Task" (typo_8)  - appbar-title is global in AppBar */
+.edit-todo :global(.appbar-title) {
   position: absolute;
   left: 88px;
   top: 61px;
@@ -35,8 +36,8 @@
   text-align: center;
 }
 
-/* Back button (Turn BackPage Button style_17)  */
-.edit-todo .back-button {
+/* Back button (Turn BackPage Button style_17)  - back-button is global */
+.edit-todo :global(.back-button) {
   position: absolute;
   left: 26px;
   top: 78px;
@@ -46,7 +47,7 @@
   border: none;
   cursor: pointer;
 }
-.edit-todo .back-button::before {
+.edit-todo :global(.back-button)::before {
   content: "";
   position: absolute;
   left: 6px;
@@ -104,8 +105,8 @@
   border-bottom-color: var(--color-8b8787);
 }
 
-/* Buttons Row */
-.edit-todo .actions .btn {
+/* Buttons Row - actions and btn are global utility classes */
+.edit-todo :global(.actions) :global(.btn) {
   width: 170px;
   height: 65px; /* 65.065 -> 65 */
 }

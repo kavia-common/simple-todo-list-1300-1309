@@ -1,6 +1,7 @@
  /* ADD TODO screen-specific styles, mapped from Figma coordinates */
 
-.screen.add-todo {
+/* Ensure .screen selector refers to the global class while .add-todo is local (scoped) */
+:global(.screen).add-todo {
   /* Artboard background (Background rectangle style_0 -> color_ffffff) */
   background: var(--color-ffffff);
 }
@@ -15,13 +16,13 @@
   background: var(--color-9395d3); /* style_2 background */
 }
 
-/* Status Bar layered inside appbar (Dark Mode=YES) */
-.add-todo .appbar .status-bar {
+/* Status Bar layered inside appbar (Dark Mode=YES) - status-bar is a global class */
+.add-todo .appbar :global(.status-bar) {
   color: var(--color-ffffff);
 }
 
-/* Title "Add Task" (typo_8) */
-.add-todo .appbar-title {
+/* Title "Add Task" (typo_8) - appbar-title is a global class from the AppBar component */
+.add-todo :global(.appbar-title) {
   position: absolute;
   left: 88px;
   top: 61px;
@@ -35,8 +36,8 @@
   text-align: center;
 }
 
-/* Back button (Turn BackPage Button style_17) */
-.add-todo .back-button {
+/* Back button (Turn BackPage Button style_17) - back-button is global on the AppBar */
+.add-todo :global(.back-button) {
   position: absolute;
   left: 26px;
   top: 78px;
@@ -46,7 +47,7 @@
   border: none;
   cursor: pointer;
 }
-.add-todo .back-button::before {
+.add-todo :global(.back-button)::before {
   content: "";
   position: absolute;
   left: 6px;
