@@ -22,20 +22,24 @@
 }
 
 /* Title "TODO APP" (typo_8)
-   We align consistently across screens (left=88, top=61) */
+   Adjusted to reduce the excessive left gap and align with content baseline. */
 .todo-page :global(.appbar-title) {
   position: absolute;
-  left: 88px;
+  /* Align closer to the left edge to match the card text baseline (~26px from screen edge) */
+  left: 26px;
   top: 61px;
-  width: 131px;
+  /* Use auto width so text does not stay centered within an artificial box */
+  width: auto;
   height: 34.264px;
   font-family: var(--font-family-jost);
   font-size: var(--typo-8-size);
   line-height: var(--typo-8-line-height);
   font-weight: var(--typo-8-weight);
   color: var(--typo-8-color);
-  /* Ensure strict left alignment per design */
+  /* Ensure strict left alignment with no unintended spacing */
   text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
 /* Todo Cards (style_22: white bg, radius 15, shadow_0)
